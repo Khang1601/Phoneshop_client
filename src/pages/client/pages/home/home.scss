@@ -1,0 +1,255 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.home_container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0px;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 40px 0px;
+
+    .banner_title {
+        font-size: 50px;
+        font-weight: bolder;
+
+        font-family: $bannerFont;
+        text-align: center;
+
+
+        background-image: linear-gradient(to right,
+                #54b3d6,
+                #54b3d6 50%,
+                #000 50%);
+        background-size: 200% 100%;
+        background-position: -100%;
+        display: inline-block;
+        padding: 5px 0;
+        position: relative;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .banner_title:before {
+        content: '';
+        background: #54b3d6;
+        display: block;
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .banner_title:hover {
+        background-position: 0;
+    }
+
+    .brandChoices_showList {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        
+        padding: 0px 30px; 
+
+
+        .brandChoices_button {
+            position: relative;
+            width: 200px;
+            height: 50px;
+            margin: 10px;
+            overflow: hidden;
+            cursor: pointer;
+
+            &:hover {
+                .brandChoices_filter {
+                    background-color: rgba(0, 0, 0, 0.358);
+                }
+
+                .brandChoices_background {
+                    transform: scale(1.1);
+                }
+            }
+
+            .brandChoices_background {
+                position: absolute;
+                width: 300px;
+                object-fit: scale-down;
+                object-position: 0px -25px;
+                z-index: -3;
+                background-blend-mode: darken;
+                transition: 0.5s;
+            }
+
+            .brandChoices_filter {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+                transition: 0.5s;
+
+                .brandChoices_logo {
+                    width: 120px;
+                    object-fit: contain;
+                }
+            }
+
+            .brandChoices_name {
+                position: absolute;
+                top: 50%;
+                left: 45%;
+                line-height: 0;
+            }
+        }
+    }
+}
+
+.bestSeller-display {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    overflow: hidden;
+    position: relative;
+
+    .bestSeller-slideList {
+        display: flex;
+        width: max-content;
+        height: 100%;
+
+        .bestSeller_slide {
+            margin: 0px 15px;
+        }
+
+        .card-description {
+            display: flex;
+            flex-direction: column;
+            font-size: 12px;
+
+            p {
+                line-height: 0px;
+                margin: 0;
+            }
+        }
+    }
+}
+
+.bestSeller-mark {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 80px;
+    height: 30px;
+    background-color: #EDEDED;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+
+    .bestSeller-text {
+        font-family: $bannerFont;
+        color: #BD001C;
+        font-size: 11px;
+    }
+}
+
+.brandLogo-container {
+    width: 70px;
+    height: 30px;
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    box-shadow: black 2px 3px 5px;
+    border-bottom-left-radius: 1px;
+    border-bottom-right-radius: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1px;
+    pointer-events: none;
+    .brandLogo {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+ 
+}
+
+
+.addCart-btn {
+    width: 100%;
+    height: 30px;
+    background-color: #529EAB;
+    border: #529EAB 1px solid;
+    color: #FFFFFF;
+    transition: 0.5s;
+    cursor: pointer;
+
+    &:hover {
+        color: #529EAB;
+        background-color: #FFFFFF;
+    }
+}
+
+.slideControl {
+    width: 100%;
+    padding: 100px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    left: 0;
+
+    .slideControl-btn {
+        width: 30px;
+        height: 30px;
+        font-family: monospace;
+        color: #529EAB;
+        font-size: 20px;
+        border-radius: 5px;
+        border: none;
+        transition: 0.5s;
+        cursor: pointer;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}
+
+.scrollTopBtn{
+    height: 80px;
+    border: none;
+    color: black;
+    span{
+        display: block;
+        animation: jump 1s ease-in-out infinite;
+    }
+}
+
+@keyframes jump {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-30%);
+    }
+  }
+  
+  .jumping-text {
+    animation: jump 1s ease-in-out infinite;
+  }
