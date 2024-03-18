@@ -4,8 +4,13 @@ header {
     flex-direction: column;
     align-items: center;
 
-    // width: 100%;
-    // height: 600px;
+    //---
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    top: -4px;
+
+
     .header_top {
         display: flex;
         justify-content: space-between;
@@ -284,7 +289,7 @@ header {
 .cartEmpty {
     width: 100%;
     object-fit: cover;
-                        // background-color: blue;
+    // background-color: blue;
 
 }
 
@@ -298,7 +303,7 @@ header {
 
     justify-content: center;
     gap: 50px;
-    
+
 
     .cartItemPic {
         width: 70px;

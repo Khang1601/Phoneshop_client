@@ -252,10 +252,6 @@ export default function Products() {
                         // <div key={Math.random() * Date.now()}>
 
 
-
-
-
-
                         <div className="col hp" key={Date.now() * Math.random()}>
 
                             <div className="card h-100 shadow-sm">

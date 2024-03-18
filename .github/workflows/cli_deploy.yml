@@ -24,19 +24,26 @@ jobs:
         password: ${{ secrets.LINUX_UBUNTU_SERVER_PASSWORD }}
         port: 22
         script: |
-          cd /var/www/phone_shop/
-          echo "GitPull dữ liệu mới"
+          echo "--------Truy cập vào thư mục dự án"
+          cd /var/www/phoneshop/phoneshop_client
+
+          echo "--------Pull code mới từ github"
           git pull
           git status
+
           echo "kiểm tra và kích hoạt nvm"
           . $HOME/.nvm/nvm.sh
           nvm use
-          echo "tạo và cấu hình .env"
+
+          echo "--------Tạo .env và chỉnh sửa"
           cp .env.example .env
           sed -i 's/SERVER_HOST/${{ secrets.SERVER_HOST }}/g' .env
-          echo "cài đặt nodemodules"
+          
+          echo "--------Cài đặt package theo package.json"
           npm ci
-          echo "build dự án"
+
+          echo "--------Build dự án"
           npm run build
-          echo "thông báo"
+
+          echo "--------Gửi thông báo!"
           echo "curl -X POST -H "Content-Type: application/json" -H "Authorization:${{ secrets.DISCORD_AUTHORIZATION }}" -d '{"content":"Dự án ReactJS đã deploy thành công link: https://khangdev.io.vn/ "}' ${{ secrets.DISCORD_NOTIFY_URL }}"

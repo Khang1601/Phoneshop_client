@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 const { Meta } = Card;
 
+import './bestSeller.scss'
+
 export default function BestSeller() {
     useEffect(() => {
         getProducts()
