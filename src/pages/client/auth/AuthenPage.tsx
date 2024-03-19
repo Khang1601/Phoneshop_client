@@ -216,6 +216,7 @@ export default function AuthenPage() {
     }
     try {
       let loginResult = await apis.userApiModule.loginByAccount(loginInfo)
+      
       if (loginResult.status == 200) {
         successMessage(loginResult.data.message)
         dispatch(userAction.createStore(loginResult.data.info))

@@ -19,7 +19,7 @@ export default function AdminHeader({ toggleCollapsed, collapsed }: { collapsed:
               title: 'Xác nhận',
               content: `Bạn chắc chắn đăng xuất chứ?`,
               async onOk() {
-                localStorage.removeItem('adtkn')
+                localStorage.removeItem('admin_token')
                 dispatch(adminAction.removeStore(null))
                 navigate('admin-auth')
               },

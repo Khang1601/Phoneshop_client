@@ -23,13 +23,13 @@ export default function AdminMainPage() {
   
   //checkLogin
   const checkLogin = async () => {
-    const adtkn = localStorage.getItem('adtkn')
-    if (adtkn) {
+    const admin_token = localStorage.getItem('admin_token')
+    if (admin_token) {
       try {
-        const result = await apis.adminApiModule.checkLogin(adtkn)
+        const result = await apis.adminApiModule.checkLogin(admin_token)
         if (result.status == 215) {
           navigate("/admin-auth")
-          localStorage.removeItem("adtkn")
+          localStorage.removeItem("admin_token")
           dispatch(adminAction.createStore(result.data.data))
           message.warning("Chỉ quản trị viên mới được truy cập")
           return
@@ -101,7 +101,7 @@ export default function AdminMainPage() {
   const onClick: MenuProps['onClick'] = (e) => {
     switch (Number(e.key)) {
       case 0:
-        localStorage.removeItem("adtkn")
+        localStorage.removeItem("admin_token")
         navigate("/")
         break;
       // case 1:

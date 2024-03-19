@@ -52,7 +52,7 @@ const fetchUser = createAsyncThunk(
     'admin/validateToken',
     async () => {
         const res = await apis.adminApiModule.checkLogin(
-            localStorage.getItem("adtkn") || "null"
+            localStorage.getItem("admin_token") || "null"
         );
         return res.data.data
     }

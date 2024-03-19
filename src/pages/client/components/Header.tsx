@@ -15,6 +15,7 @@ import enUS from 'antd/es/locale/en_US'
 import jpImg from '../../../assets/japan-flag-icon-32.png'
 import vnImg from '../../../assets/vietnam-flag-icon-32.png'
 import usaImg from '../../../assets/united-states-of-america-flag-icon-32.png'
+import logonew from '../../../assets/logonew.png'
 
 
 
@@ -195,6 +196,9 @@ export default function Header() {
                     <img className='logo'
                         onClick={() => { navigate("/") }}
                         src="https://cdn-icons-png.flaticon.com/512/438/438560.png"
+                        // src={logonew}
+
+                        
                         alt=""
                     />
                 </section>
