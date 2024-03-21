@@ -1,4 +1,4 @@
-import logo from '@pics/logo.png'
+// import logo from '@pics/logo.png'
 import './adminHeader.scss'
 import { Button, Modal } from 'antd'
 import {
@@ -21,12 +21,14 @@ export default function AdminHeader({ toggleCollapsed, collapsed }: { collapsed:
               async onOk() {
                 localStorage.removeItem('admin_token')
                 dispatch(adminAction.removeStore(null))
-                navigate('admin-auth')
+                // navigate('admin-auth')
+                navigate('/admin-auth')
               },
               okText: 'Xác định',
               cancelText: 'Huỷ'
             }
           )
+
     }
     return (
         <header>

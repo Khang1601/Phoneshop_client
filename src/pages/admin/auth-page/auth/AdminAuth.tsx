@@ -1,8 +1,6 @@
 import { apis } from '@/service/apis'
 import './adminAuth.scss'
-
-// import './adminAuth'
-
+// import bckGrdImg from '@pics/adminAuthBckg.jpeg'
 import { message } from 'antd';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -30,6 +28,7 @@ export default function AdminAuth() {
                     navigate("/admin")
                 }
             } catch (error) {
+                console.log("error", error);
 
             }
         }
@@ -71,65 +70,62 @@ export default function AdminAuth() {
     }
 
     return (
-        // <section className='pageConstruct'>
-        //     {contextHolder}
-        //     <div className='adminAuth'>
-        //         <h2>Đăng nhập Admin</h2>
 
 
-        //         <form className='admin_loginForm' onSubmit={(e: React.FormEvent<HTMLFormElement>) => { handleAdminLogin(e) }}>
-        //             <label htmlFor="admin_username">Tài Khoản</label>
-        //             <input className='admin_input' id='admin_username' type="text" name='username' autoComplete='off' />
 
-        //             <label htmlFor="admin_password">Mật Khẩu</label>
-        //             <input className='admin_input' id='admin_password' type="password" name='password' autoComplete='off' />
-        //             <div className='btnBox'>
-        //                 <button type='submit' className='admin_loginBtn'>Đăng Nhập</button>
-        //             </div>
-        //         </form>
-        //     </div>
-        // </section>
 
-        <div className="page">
-            <div className="container">
-                <div className="left">
-                    <div className="login">Login</div>
-                    <div className="eula">
-                        By logging in you agree to the ridiculously long terms that you didn't
-                        bother to read
-                    </div>
-                </div>
 
-                <div className="right">
-                    <svg viewBox="0 0 320 300">
-                        <defs>
-                            <linearGradient
-                                // inkscape:collect="always"
-                                {...({ 'inkscape:collect': 'always' } as React.SVGProps<SVGLinearGradientElement>)}
-                                id="linearGradient"
-                                x1={13}
-                                y1="193.49992"
-                                x2={307}
-                                y2="193.49992"
-                                gradientUnits="userSpaceOnUse"
-                            >
-                                <stop style={{ stopColor: "#ff00ff" }} offset={0} id="stop876" />
-                                <stop style={{ stopColor: "#ff0000" }} offset={1} id="stop878" />
-                            </linearGradient>
-                        </defs>
-                        <path d="m 40,120.00016 239.99984,-3.2e-4 c 0,0 24.99263,0.79932 25.00016,35.00016 0.008,34.20084 -25.00016,35 -25.00016,35 h -239.99984 c 0,-0.0205 -25,4.01348 -25,38.5 0,34.48652 25,38.5 25,38.5 h 215 c 0,0 20,-0.99604 20,-25 0,-24.00396 -20,-25 -20,-25 h -190 c 0,0 -20,1.71033 -20,25 0,24.00396 20,25 20,25 h 168.57143" />
-                    </svg>
+        <div className="wrapper animated bounce">
 
-                    <div className="form" onSubmit={(e: React.FormEvent<HTMLFormElement>) => { handleAdminLogin(e) }}>
+            {/* <section className='pageConstruct'>
+
+
+                {contextHolder}
+
+                <div className='adminAuth'>
+                    <h2>Đăng nhập</h2>
+                    <form className='admin_loginForm' onSubmit={(e: React.FormEvent<HTMLFormElement>) => { handleAdminLogin(e) }}>
                         <label htmlFor="admin_username">Tài Khoản</label>
-                        <input type="text" id="admin_username" />
+                        <input className='admin_input' id='admin_username' type="text" name='username' autoComplete='off' />
 
                         <label htmlFor="admin_password">Mật Khẩu</label>
-                        <input type="password" id="admin_password" />
-                        <input type="submit" id="submit" defaultValue="Submit" />
-                    </div>
+                        <input className='admin_input' id='admin_password' type="password" name='password' autoComplete='off' />
+                        <div className='btnBox'>
+                            <button type='submit' className='admin_loginBtn'>Đăng Nhập</button>
+                        </div>
+                    </form>
                 </div>
-            </div>
+            </section> */}
+
+            <h1>Admin login</h1>
+            <hr />
+
+            <form onSubmit={(e: React.FormEvent<HTMLFormElement>) => { handleAdminLogin(e) }}>
+                <label id="icon" htmlFor="admin_username">
+                    <i className="fa fa-user" />
+                </label>
+                <input type="text" placeholder="Username" id="admin_username" name='username' />
+
+                <label id="icon" htmlFor="admin_password">
+                    <i className="fa fa-key" />
+                </label>
+                <input type="password" placeholder="Password" id="admin_password" name='password' />
+
+
+                <button type="submit" >Đăng Nhập</button>
+
+
+                <hr />
+                <div className="crtacc" >
+                    {/* <a href="#" onClick={ () => { navigate('/')}}>Come back Home</a> */}
+                    <a href="#" onClick={ () => { window.location.href = "/"; }}>Come back Home</a>
+
+                </div>
+            </form>
+
         </div>
+
+
+
     )
 }
