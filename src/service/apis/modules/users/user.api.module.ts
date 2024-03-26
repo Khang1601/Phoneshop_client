@@ -34,8 +34,15 @@ export const userApiModule = {
         return await axios.patch(`${import.meta.env.VITE_API_SERVER}/api/v1/users/update-password`,passwordInfo)
     },
 
-    //---
-    updatePhoneUser:async function(phoneInfo :{userId:number,old:string,new:string}){
-        return await axios.patch(`${import.meta.env.VITE_API_SERVER}/api/v1/users/update-phone-user`, phoneInfo)
-    }
+    
+
+    
+    // updatePhoneUser:async function(userId:number, newPhone:string){
+    //     return await axios.patch(`${import.meta.env.VITE_API_SERVER}/api/v1/users/update-phone-user`, { userId, newPhone })
+    // }
+
+    // updatePhoneUser: async function(userId: number, newPhone:string) {
+    //     return await axios.patch(`${import.meta.env.VITE_API_SERVER}/api/v1/users/update-phone/${userId}`, { phone: newPhone });
+    // }
+    
 }

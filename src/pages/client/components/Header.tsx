@@ -184,7 +184,7 @@ export default function Header() {
 
     const [editPhoneForm] = Form.useForm<{
         newPhone: string,
-        oldPhone: string
+        // oldPhone: string
     }>();
 
     return (
@@ -553,7 +553,7 @@ export default function Header() {
 
 
 
-                            <ModalForm<{
+                            {/* <ModalForm<{
                                 newPhone: string,
                                 oldPhone: string
                             }>
@@ -607,7 +607,58 @@ export default function Header() {
                                         required
                                     />
                                 </ProForm.Group>
-                            </ModalForm>
+                            </ModalForm> */}
+
+{/* <ModalForm<{
+    newPhone: string
+}>
+    title="Đổi SĐT" // Thay đổi tiêu đề của modal nếu cần
+    trigger={
+        <span>Đổi SĐT</span>
+    }
+    form={editPhoneForm}
+    autoFocusFirstInput
+    variant="filled"
+    modalProps={{
+        destroyOnClose: true,
+    }}
+    submitTimeout={2000}
+    onFinish={async (values) => {
+        await waitTime(2000);
+        try {
+            if (userDetail != null) {
+                const result = await apis.userApiModule.updatePhoneUser(userDetail.id, values.newPhone);
+                if (result.status == 200) {
+                    dispatch(userAction.createStore(result.data.data))
+                    localStorage.setItem('token', result.data.token)
+                    message.success(result.data.message)
+                    return true
+                } else {
+                    message.error(result.data.message)
+                }
+            } else {
+                throw false
+            }
+        } catch (err) {
+            message.error('Thay đổi SĐT thất bại, vui lòng thử lại sau');
+        }
+    }}
+>
+    <ProForm.Group style={{ margin: "10px 0px" }}>
+
+
+
+        <ProFormText
+            width="md"
+            name="newPhone"
+            label="Nhập SĐT mới"
+            placeholder="SĐT mới"
+            required
+        />
+    </ProForm.Group>
+</ModalForm> */}
+
+
 
 
 

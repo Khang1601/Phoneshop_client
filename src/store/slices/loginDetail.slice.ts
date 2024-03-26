@@ -8,7 +8,7 @@ export interface User {
     avatar:string;
     wallet:number,
 
-    // email: string
+    email: string
 }
 
 interface UserState {
